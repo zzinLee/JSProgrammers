@@ -6,8 +6,6 @@ function solution(n){
             arr.push(i);
         }
     }
-
-    console.log(arr);
+    return arr;
 }
-solution(10);
-solution(15);
+
