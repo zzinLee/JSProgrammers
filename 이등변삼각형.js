@@ -1,3 +1,5 @@
+//readline으로 이등변삼각형 출력해보기 예제
+
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
