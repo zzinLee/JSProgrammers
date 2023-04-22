@@ -19,7 +19,6 @@ rl.on('close',function(){
     let str = '';
     for(let i=0;i<Number(input[1]);i++){
         str += input[0];
-        
     }
     //String.prototype.repeat(숫자) 메서드 사용가능
     //str = input[0].repeat(Number(input[1])
