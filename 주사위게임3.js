@@ -1,3 +1,4 @@
+/* 내 풀이 */
 function solution(a,b,c,d){
 
   let diceSet = new Set([a,b,c,d]);
@@ -13,7 +14,6 @@ function solution(a,b,c,d){
     case 4:
       return Math.min(a,b,c,d);
   }
-
 }
 
 function twoSum(a,b,c,d){
@@ -50,4 +50,50 @@ function threeSum(a,b,c,d){
     return obj[j]-obj[i];
   })
   return q*r;
+}
+
+/* another solution */
+function solution(...nums){
+  nums.sort();//숫자를 오름차순으로
+
+  const cnt = new Set(nums).size;
+  switch(cnt){
+    case 1 : return 1111 * nums[0];
+    case 4 : return Math.min(...nums);
+
+    default: {
+      const obj = {};
+      nums.forEach((num)=>
+        obj[num] = (obj[num]||0)+ 1 );
+      
+      
+      const SetCnt = new Set(Object.values(obj));
+      //(3,1), (2,1,1), (2)
+
+      //(3,1)
+      if(SetCnt.has(3)){
+        //(a,a,a,b) 일수도 (a,b,b,b) 일수도 있기 때문에
+        //등장 빈도수가 높은게 p 낮은게 q
+        if(nums[0]===nums[1]){
+          p = nums[0];
+          q = nums[3];
+        }
+        else{
+          p = nums[3];
+          q = nums[0];
+        }
+        return (10 * p + q)**2 ;
+      }
+
+      //(2,1,1)
+      if(SetCnt.has(1)){
+        return nums.reduce((acc,cur)=>acc*(
+          obj[cur]===2 ? 1 : cur
+        ),1)
+      }
+
+      //(2,2)
+      return (nums[0]+nums[3]) * Math.abs(nums[0]-nums[3]);
+    }
+  }
 }
