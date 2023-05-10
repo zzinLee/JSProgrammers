@@ -68,7 +68,7 @@ function solution(...nums){
       
       
       const SetCnt = new Set(Object.values(obj));
-      //(3,1), (2,1,1), (2)
+      //(3,1), (2,1,1`), (2)
 
       //(3,1)
       if(SetCnt.has(3)){
