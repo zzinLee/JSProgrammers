@@ -24,11 +24,3 @@ const arr1 = '((()()()))()'
 const arr2 = '((()'
 const arr3 = '()()())'
 console.log(mysolution(arr1),mysolution(arr2),mysolution(arr3));
-
-function solution(s){
-  let ans = 0;
-  for(let param of s){
-    ans += param === '(' ? 1 : -1 ;
-    if(ans)
-  }
-}
