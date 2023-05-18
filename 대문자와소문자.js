@@ -33,10 +33,28 @@ function basicsolution(my_string){
 
 console.log(basicsolution("cccCCC"));
 
-function ForMethodsolution(my_string){
+function Forsolution(my_string){
   let ans = '';
   for(const i of my_string)
     ans += i.toUpperCase() === i ? i.toLowerCase() : i.toUpperCase();
   
   return ans;
 }
+
+//틀린풀이이다.
+function error(my_string){
+  const arr = my_string.split('');
+  for(let i of arr){
+    console.log(i);
+    i = i===i.toUpperCase() ? 
+    i.toLowerCase() : i.toUpperCase();
+    console.log(i);
+  }
+  console.log(arr);
+  return arr;
+}
+
+//string type 대상으로 for..of..문 쓸 수 있다!
+//Array 로 굳이 만들지 않아도 된다! 
+//for...of..는 이터러블을 이용한 반복문
+// Array method가 아님!!
