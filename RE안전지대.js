@@ -83,3 +83,29 @@ const board = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 1, 1, 0
 const example = [[0,0,1,1],[1,1,1,1],[0,0,0,0],[0,0,0,0]];
 
 console.log(final(example));
+
+/* 다음날 풀이 (머릿속에남은거) */
+function solution(board){
+  const n = board.length;
+  const deepcopy = JSON.parse(JSON.stringify(board));
+  const diffusion = [
+    [-1,-1],[-1,0],[-1,1],
+    [0,-1],[0,1],
+    [1,-1],[1,0],[1,1]];
+    
+  board.forEach((row,i)=>{
+    row.forEach((val,j)=>{
+      if(val === 1){
+        for(const diff of diffusion){
+          let new_i = i + diff[0];
+          let new_j = j + diff[1];
+          if(new_i < 0 || new_j < 0 || new_i >= n || new_j >= n )
+            continue;
+          
+            deepcopy[new_i][new_j] = 1;
+        }
+      }
+    })
+  })
+  return n*n - deepcopy.flat().filter((v)=>v===1).length;
+}
