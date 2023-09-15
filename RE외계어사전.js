@@ -41,3 +41,27 @@ function wrong_solution(spell,dic){
       1 : 2 ;
   })
 }
+
+//2023.06.27풀이
+function solution(spell, dic) {
+  for(const word of dic){
+      let checker = {};
+
+      word.split('').forEach((a)=>{
+          for(const alpha of spell){
+              if(a === alpha)
+              {
+                  checker[alpha] = (checker[alpha]||0)+1;
+                  break;
+              }            
+              else
+                  continue;
+          }
+      })
+      const checkArr = Object.values(checker);
+      if(checkArr.length === spell.length && checkArr.every((v)=>v===1))
+          return 1;
+  }
+  
+  return 2;
+}
